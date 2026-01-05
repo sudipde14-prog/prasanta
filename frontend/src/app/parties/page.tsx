@@ -95,10 +95,16 @@ export default function PartiesPage() {
             setSubmitting(true);
             setError(null);
 
+
+            const partyData = {
+                ...formData,
+                type: formData.type as "supplier" | "both"
+            };
+
             if (editingParty) {
-                await partiesAPI.update(editingParty.id, formData);
+                await partiesAPI.update(editingParty.id, partyData);
             } else {
-                await partiesAPI.create(formData);
+                await partiesAPI.create(partyData);
             }
 
             setShowModal(false);
