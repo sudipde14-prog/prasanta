@@ -22,6 +22,10 @@ app.use(cors({
 app.use(express.json());
 
 // Health check
+app.get('/', (req, res) => {
+  res.json({ status: 'API is running', timestamp: new Date().toISOString() });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
@@ -38,9 +42,9 @@ app.use('/api/settings', settingsRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
-  res.status(500).json({ 
-    error: 'Something went wrong', 
-    message: err.message 
+  res.status(500).json({
+    error: 'Something went wrong',
+    message: err.message
   });
 });
 
