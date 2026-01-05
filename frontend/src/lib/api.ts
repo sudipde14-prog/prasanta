@@ -1,15 +1,8 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL;
-if (!API_BASE) {
-    console.warn("API URL missing! Please set NEXT_PUBLIC_API_URL in Environment Variables.");
-    // We don't throw immediately to allow build to pass, but requests will fail if not set.
-    // However, user asked to throw error: "if (!API_URL) throw new Error..."
-    // Let's stick closer to user request but safer for build:
-}
-const API_URL = API_BASE || 'http://localhost:3001';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
 // Generic fetch wrapper with error handling
 async function fetchAPI<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-    const url = `${API_BASE}${endpoint}`;
+    const url = `${API_URL}${endpoint}`;
 
     const config: RequestInit = {
         ...options,
