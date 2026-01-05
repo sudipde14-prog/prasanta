@@ -52,7 +52,7 @@ export default function ReportsPage() {
 
             if (activeTab === 'daily') {
                 const response = await reportsAPI.daily(selectedDate);
-                setDailyData(response.summary as DailySummary);
+                setDailyData(response.summary as unknown as DailySummary);
             } else if (activeTab === 'monthly') {
                 const response = await reportsAPI.monthly(selectedYear, selectedMonth);
                 setMonthlyData(response);
