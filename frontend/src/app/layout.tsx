@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { AppLock } from "@/components/AppLock";
 
 export const metadata: Metadata = {
   title: "Ledger Book",
@@ -32,7 +33,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        {children}
+        <AppLock>
+          {children}
+        </AppLock>
       </body>
     </html>
   );
