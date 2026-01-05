@@ -92,6 +92,8 @@ export default function ItemsPage() {
             setError(null);
 
 
+
+            // Explicitly cast default_unit to match the expected union type
             const itemData = {
                 ...formData,
                 default_unit: formData.default_unit as "KG" | "Packet" | "Quintal" | "Litre"
