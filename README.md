@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📒 Inventory & Ledger System
 
 Simple, mobile-first inventory and ledger software for small shop owners.
@@ -104,3 +105,6 @@ See [`walkthrough.md`](./.gemini/antigravity/brain/*/walkthrough.md) for detaile
 - **Backend**: Node.js, Express
 - **Database**: Supabase (PostgreSQL)
 - **Deployment**: Vercel (frontend), Render (backend)
+=======
+# prasanta
+>>>>>>> 3ab093d47ac74703eccc2700dd2d80c6b8359f8f
