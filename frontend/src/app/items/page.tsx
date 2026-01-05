@@ -91,10 +91,16 @@ export default function ItemsPage() {
             setSubmitting(true);
             setError(null);
 
+
+            const itemData = {
+                ...formData,
+                default_unit: formData.default_unit as "KG" | "Packet" | "Quintal" | "Litre"
+            };
+
             if (editingItem) {
-                await itemsAPI.update(editingItem.id, formData);
+                await itemsAPI.update(editingItem.id, itemData);
             } else {
-                await itemsAPI.create(formData);
+                await itemsAPI.create(itemData);
             }
 
             setShowModal(false);
