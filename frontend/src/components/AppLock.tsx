@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import { settingsAPI } from '@/lib/api';
 
 export function AppLock({ children }: { children: React.ReactNode }) {
+    // TEMPORARY BYPASS - Remove this line after setting up backend
+    return <>{children}</>;
+
     const [isLocked, setIsLocked] = useState(true);
     const [pinSet, setPinSet] = useState(false);
     const [loading, setLoading] = useState(true);
