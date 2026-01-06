@@ -1,4 +1,8 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+// Use environment variable, or fallback to Render URL for production, or localhost for dev
+const API_URL = process.env.NEXT_PUBLIC_API_URL ||
+    (typeof window !== 'undefined' && window.location.hostname !== 'localhost'
+        ? 'https://prasanta.onrender.com'
+        : 'http://localhost:3001');
 
 // Generic fetch wrapper with error handling
 async function fetchAPI<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
